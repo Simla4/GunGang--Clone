@@ -72,6 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3599019079614329880}
+  - component: {fileID: 144267154557217638}
   m_Layer: 0
   m_Name: SideMovementRoot
   m_TagString: Untagged
@@ -95,6 +96,22 @@ Transform:
   m_Father: {fileID: 3599019078530054942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &144267154557217638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599019079614329895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5404e82c29f1fd845ac3cc17c8f43dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideMovementRoot: {fileID: 3599019079614329880}
+  sideMovementSensitivity: 0.5
+  leftLimit: 3
+  rightLimit: -3
 --- !u!1 &3599019080023096091
 GameObject:
   m_ObjectHideFlags: 0
