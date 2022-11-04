@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,18 +10,27 @@ public class InputManager : MonoSingleton<InputManager>
     private bool isGameStart = false;
 
     #endregion
-    
-    #region OtherMethods
 
-    public void HandleInput()
+    #region Callbacks
+
+    private void Update()
     {
         if (isGameStart == false)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 EventManager.OnGameStart?.Invoke();
+                isGameStart = true;
             }
         }
+    }
+
+    #endregion
+    
+    #region OtherMethods
+
+    public void HandleInput()
+    {
         
         if(Input.GetMouseButtonDown(0))
         {
