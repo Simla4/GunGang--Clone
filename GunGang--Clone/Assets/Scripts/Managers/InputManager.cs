@@ -6,6 +6,7 @@ public class InputManager : MonoSingleton<InputManager>
 {
     #region Variables
     private Vector2 firstMousePos, inputDrag;
+    private bool isGameStart = false;
 
     #endregion
     
@@ -13,6 +14,14 @@ public class InputManager : MonoSingleton<InputManager>
 
     public void HandleInput()
     {
+        if (isGameStart == false)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                EventManager.OnGameStart?.Invoke();
+            }
+        }
+        
         if(Input.GetMouseButtonDown(0))
         {
             firstMousePos = Input.mousePosition;
