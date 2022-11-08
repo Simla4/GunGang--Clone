@@ -16,11 +16,23 @@ public class InputManager : MonoSingleton<InputManager>
     private void Update()
     {
         StartGameInput();
+        PlayerFireInput();
     }
 
     #endregion
     
     #region OtherMethods
+
+    private void PlayerFireInput()
+    {
+        if (isGameStart == true)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                EventManager.OnPlayerFire?.Invoke();
+            }
+        }
+    }
 
     private void StartGameInput()
     {
