@@ -15,6 +15,16 @@ public class InputManager : MonoSingleton<InputManager>
 
     private void Update()
     {
+        StartGameInput();
+    }
+
+    #endregion
+    
+    #region OtherMethods
+
+    private void StartGameInput()
+    {
+        
         if (isGameStart == false)
         {
             if (Input.GetMouseButtonDown(0))
@@ -23,12 +33,8 @@ public class InputManager : MonoSingleton<InputManager>
                 isGameStart = true;
             }
         }
+        
     }
-
-    #endregion
-    
-    #region OtherMethods
-
     public void HandleInput()
     {
         
