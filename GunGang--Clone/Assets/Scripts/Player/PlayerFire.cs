@@ -11,7 +11,6 @@ public class PlayerFire : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletExtinctionTime = 1f;
     [SerializeField] private float bulletSpawnTime = 0.5f;
-    [SerializeField] private float bulletSpped = 5f;
 
     #endregion
 
