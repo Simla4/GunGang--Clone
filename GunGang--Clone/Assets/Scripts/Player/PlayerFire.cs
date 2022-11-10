@@ -10,7 +10,7 @@ public class PlayerFire : MonoBehaviour
     [SerializeField] private bool isPlayerMyTeam = false;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletExtinctionTime = 1f;
-    [SerializeField] private float bulletSpawnTime = 0.5f;
+    [SerializeField] private float nextFire = 0.5f;
 
     #endregion
 
@@ -30,6 +30,7 @@ public class PlayerFire : MonoBehaviour
 
     #region OtherMethods
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void Fire()
     {
         if (isPlayerMyTeam == true)
@@ -40,7 +41,8 @@ public class PlayerFire : MonoBehaviour
 
     IEnumerator IEBulletMaker()
     {
-        yield return new WaitForSeconds(bulletSpawnTime);
+               
+        Debug.Log("Fire");
 
         var posX = transform.position.x;
         var posZ = transform.position.z;

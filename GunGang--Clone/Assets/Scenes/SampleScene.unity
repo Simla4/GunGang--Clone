@@ -941,5 +941,13 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 4354000767251858668, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
+    - target: {fileID: 8254799823111553208, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+      propertyPath: bulletSpawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254799823111553208, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+      propertyPath: bulletExtinctionTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
