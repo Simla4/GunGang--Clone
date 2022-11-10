@@ -8,6 +8,10 @@ public class PlayerFire : MonoBehaviour
     #region Variables
 
     [SerializeField] private bool isPlayerMyTeam = false;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletExtinctionTime = 1f;
+    [SerializeField] private float bulletSpawnTime = 0.5f;
+    [SerializeField] private float bulletSpped = 5f;
 
     #endregion
 
@@ -31,8 +35,24 @@ public class PlayerFire : MonoBehaviour
     {
         if (isPlayerMyTeam == true)
         {
-            Debug.Log("Fire");
+            StartCoroutine(IEBulletMaker());
         }
+    }
+
+    IEnumerator IEBulletMaker()
+    {
+        yield return new WaitForSeconds(bulletSpawnTime);
+
+        var posX = transform.position.x;
+        var posZ = transform.position.z;
+        
+        var spanedObj =  Instantiate(bulletPrefab);
+
+        spanedObj.transform.position = new Vector3(posX, 1f, posZ);
+        
+        yield return new WaitForSeconds(bulletExtinctionTime);
+        
+        Destroy(spanedObj);
     }
 
     #endregion
