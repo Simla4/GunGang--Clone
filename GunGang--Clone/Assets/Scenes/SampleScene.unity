@@ -865,30 +865,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 144267154557217638, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: leftLimit
-      value: -5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144267154557217638, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: rightLimit
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144267154557217638, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: sideMovementSensitivity
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419774473530315153, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3419774473530315153, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 613110317}
-    - target: {fileID: 3419774473530315153, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: endOfPathInstruction
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3599019078530054941, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -937,17 +917,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8254799823111553208, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4354000767251858668, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
-    - target: {fileID: 8254799823111553208, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
-      propertyPath: bulletSpawnTime
-      value: 0.5
+    - target: {fileID: 5936352563082415229, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+      propertyPath: fireRate
+      value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 8254799823111553208, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+    - target: {fileID: 5936352563082415229, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+      propertyPath: nextFire
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936352563082415229, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
       propertyPath: bulletExtinctionTime
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}

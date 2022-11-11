@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3599019078530054942}
   - component: {fileID: 2298671345127440988}
   - component: {fileID: 3419774473530315153}
-  - component: {fileID: 8254799823111553208}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -63,20 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
   endOfPathInstruction: 2
-  speed: 5
---- !u!114 &8254799823111553208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3599019078530054941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8633b6ad6d6e3bd47a4121050aa4fd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayerMyTeam: 1
+  speed: 0
 --- !u!1 &3599019079614329895
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3599019079614329880}
   - component: {fileID: 144267154557217638}
+  - component: {fileID: 5936352563082415229}
   m_Layer: 0
   m_Name: SideMovementRoot
   m_TagString: Untagged
@@ -123,9 +110,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideMovementRoot: {fileID: 3599019079614329880}
-  sideMovementSensitivity: 0.5
-  leftLimit: 3
-  rightLimit: -3
+  sideMovementSensitivity: 0.07
+  leftLimit: -5.5
+  rightLimit: 5.5
+--- !u!114 &5936352563082415229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599019079614329895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8633b6ad6d6e3bd47a4121050aa4fd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerMyTeam: 1
+  bulletPrefab: {fileID: 4354000767251858668, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
+  bulletExtinctionTime: 2
+  nextFire: 0.5
 --- !u!1 &3599019080023096091
 GameObject:
   m_ObjectHideFlags: 0
