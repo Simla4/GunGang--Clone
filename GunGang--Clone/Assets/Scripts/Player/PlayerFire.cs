@@ -52,9 +52,7 @@ public class PlayerFire : MonoBehaviour
             var posX = transform.position.x;
             var posZ = transform.position.z;
         
-            spawnedObj = Instantiate(bulletPrefab);
-
-            spawnedObj.transform.position = new Vector3(posX, 1f, posZ);
+            
         }
         
         yield return new WaitForSeconds(bulletExtinctionTime);
