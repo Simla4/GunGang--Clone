@@ -719,8 +719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c249eefae08e5184f86bc945ba87b7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeList: []
-  inactiveList: []
+  pools:
+  - objPrefab: {fileID: 4354000767251858668, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
+    activeList: []
+    inactiveList: []
 --- !u!43 &2084161089
 Mesh:
   m_ObjectHideFlags: 0
