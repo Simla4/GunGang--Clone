@@ -37,35 +37,26 @@ public class PlayerFire : MonoBehaviour
     {
         if (isPlayerMyTeam == true)
         {
-            StartCoroutine(IEBulletMaker());
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                
+                StartCoroutine(IEBulletMaker());
+            }
         }
     }
 
     IEnumerator IEBulletMaker()
     {
-        GameObject spawnedObj = null;
         
-        if (Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            
-            var posX = transform.position.x;
-            var posZ = transform.position.z;
+        var posX = transform.position.x;
+        var posZ = transform.position.z;
         
-            // spawnedObj = Instantiate(bulletPrefab);
-            // spawnedObj.transform.position = new Vector3(posX, 1f, posZ);
             
-            spawnedObj = ObjectPooler.Instance.SpanwObject(bulletPrefab);
-            spawnedObj.transform.position = new Vector3(posX, 1, posZ);
-            
-            Debug.Log("in if"+ spawnedObj);
-        }
+        var spawnedObj = ObjectPooler.Instance.SpanwObject(bulletPrefab);
+        spawnedObj.transform.position = new Vector3(posX, 1, posZ);
         
         yield return new WaitForSeconds(bulletExtinctionTime);
-        
-        //Destroy(spawnedObj);
-        
-        Debug.Log(spawnedObj);
         
         ObjectPooler.Instance.RemoveObject(spawnedObj);
     }
