@@ -52,12 +52,22 @@ public class PlayerFire : MonoBehaviour
             var posX = transform.position.x;
             var posZ = transform.position.z;
         
+            // spawnedObj = Instantiate(bulletPrefab);
+            // spawnedObj.transform.position = new Vector3(posX, 1f, posZ);
             
+            spawnedObj = ObjectPooler.Instance.SpanwObject(bulletPrefab);
+            spawnedObj.transform.position = new Vector3(posX, 1, posZ);
+            
+            Debug.Log("in if"+ spawnedObj);
         }
         
         yield return new WaitForSeconds(bulletExtinctionTime);
         
-        Destroy(spawnedObj);
+        //Destroy(spawnedObj);
+        
+        Debug.Log(spawnedObj);
+        
+        ObjectPooler.Instance.RemoveObject(spawnedObj);
     }
 
     #endregion
