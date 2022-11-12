@@ -8,7 +8,6 @@ public class PlayerFire : MonoBehaviour
     #region Variables
 
     [SerializeField] private bool isPlayerMyTeam = false;
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletExtinctionTime = 1f;
     [SerializeField] private float fireRate = 0.5f;
 
@@ -53,12 +52,12 @@ public class PlayerFire : MonoBehaviour
         var posZ = transform.position.z;
         
             
-        var spawnedObj = ObjectPooler.Instance.SpanwObject(bulletPrefab);
+        var spawnedObj = ObjectPooler.Instance.SpanwObject(0);
         spawnedObj.transform.position = new Vector3(posX, 1, posZ);
         
         yield return new WaitForSeconds(bulletExtinctionTime);
         
-        ObjectPooler.Instance.RemoveObject(spawnedObj);
+        ObjectPooler.Instance.RemoveObject(spawnedObj, 0);
     }
 
     #endregion

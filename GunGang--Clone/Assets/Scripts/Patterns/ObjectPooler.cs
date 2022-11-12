@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,47 +6,49 @@ using UnityEngine;
 public class ObjectPooler : MonoSingleton<ObjectPooler>
 {
     #region Variables
+    
+    [Serializable]
+    public struct Pool
+    {
+        public GameObject objPrefab;
+        public List<GameObject> activeList;
+        public List<GameObject> inactiveList;
+    }
 
-    [SerializeField] private List<GameObject> activeList;
-    [SerializeField] private List<GameObject> inactiveList;
+    [SerializeField] private List<Pool> pools = null;
 
     #endregion
 
     #region Other Methods
 
-    public GameObject SpanwObject(GameObject obj)
+    public GameObject SpanwObject(int objType)
     {
         GameObject spawnedObj = null;
-
-        if (inactiveList.Count != 0)
-        {
-            var index = inactiveList.BinarySearch(obj);
-            
-            spawnedObj = inactiveList[index];
-            inactiveList.RemoveAt(index);
-            
+        
+        if(pools[objType].inactiveList.Count > 0)
+        { 
+            spawnedObj = pools[objType].inactiveList[0];
             spawnedObj.SetActive(true);
-            
-            activeList.Add(spawnedObj);
-            return spawnedObj;
+
+            pools[objType].inactiveList.RemoveAt(0);
         }
         else
         {
-            spawnedObj = Instantiate(obj);
-            
-            activeList.Add(spawnedObj);
-            
-            return spawnedObj;
+            spawnedObj = Instantiate(pools[objType].objPrefab);
         }
         
+        pools[objType].activeList.Add(spawnedObj);
+        
+        return spawnedObj;
+
     }
 
-    public void RemoveObject(GameObject obj)
+    public void RemoveObject(GameObject obj, int objType)
     {
-        inactiveList.Add(obj);
+        pools[objType].activeList.Remove(obj);
+        
+        pools[objType].inactiveList.Add(obj);
         obj.SetActive(false);
-
-        activeList.Remove(obj);
     }
 
     #endregion
