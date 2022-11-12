@@ -13,11 +13,11 @@ public class ObjectPooler : MonoSingleton<ObjectPooler>
 
     #region Other Methods
 
-    public GameObject SpanwObject(GameObject obj, int poolSize)
+    public GameObject SpanwObject(GameObject obj)
     {
         GameObject spawnedObj = null;
 
-        if (activeList.Contains(obj))
+        if (inactiveList.Count != 0)
         {
             var index = inactiveList.BinarySearch(obj);
             
