@@ -958,6 +958,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 1364226234873111524, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364226234873111524, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5263072593843906215, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
       propertyPath: m_RootOrder
       value: 4
