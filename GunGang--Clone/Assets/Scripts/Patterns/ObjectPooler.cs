@@ -28,7 +28,6 @@ public class ObjectPooler : MonoSingleton<ObjectPooler>
         if(pools[objType].inactiveList.Count > 0)
         { 
             spawnedObj = pools[objType].inactiveList[0];
-            spawnedObj.SetActive(true);
 
             pools[objType].inactiveList.RemoveAt(0);
         }
@@ -36,6 +35,8 @@ public class ObjectPooler : MonoSingleton<ObjectPooler>
         {
             spawnedObj = Instantiate(pools[objType].objPrefab);
         }
+        
+        spawnedObj.SetActive(true);
         
         pools[objType].activeList.Add(spawnedObj);
         
