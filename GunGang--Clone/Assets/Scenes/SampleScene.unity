@@ -958,14 +958,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
-    - target: {fileID: 1364226234873111524, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364226234873111524, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5263072593843906215, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -980,7 +972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5263072593843906215, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 21.54
       objectReference: {fileID: 0}
     - target: {fileID: 5263072593843906215, guid: 7638badcfe7dde449b058f4c50d99ab5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1019,6 +1011,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2298671345127440988, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3419774473530315153, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
       propertyPath: pathCreator
       value: 
