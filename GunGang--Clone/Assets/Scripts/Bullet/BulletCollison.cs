@@ -7,9 +7,11 @@ public class BulletCollison : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.TryGetComponent(out IObstacle obstacle))
         {
-            EventManager.OnBulletCollison?.Invoke();
+            obstacle.WhenBulletHits();
+            
+            ObjectPooler.Instance.RemoveObject(gameObject, 0);
         }
     }
 }

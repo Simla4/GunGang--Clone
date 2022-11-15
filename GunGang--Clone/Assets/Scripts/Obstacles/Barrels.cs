@@ -4,36 +4,39 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrels : MonoBehaviour
+public class Barrels : MonoBehaviour, IObstacle
 {
     #region Variables
 
     [SerializeField] private int barrelHealth;
+    [SerializeField] private bool isBarretWithPlayer = false;
 
     [SerializeField] private TextMeshPro barrelValueTxt;
 
     #endregion
-
-    #region Callbacks
-
-    private void OnEnable()
-    {
-        EventManager.OnBulletCollison += ChangeBarrelValue;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnBulletCollison -= ChangeBarrelValue;
-    }
-
-    #endregion
-
+    
     #region Other Methods
 
-    private void ChangeBarrelValue()
+    public void WhenBulletHits()
     {
         barrelHealth--;
         barrelValueTxt.text = barrelHealth.ToString();
+        
+        DestroyBarrel();
+    }
+
+    private void DestroyBarrel()
+    {
+        
+        if (barrelHealth <= 0)
+        {
+            if (isBarretWithPlayer == true)
+            {
+                Debug.Log("Barrel with player");
+            
+            }
+            Destroy(gameObject);
+        }
     }
 
     #endregion
