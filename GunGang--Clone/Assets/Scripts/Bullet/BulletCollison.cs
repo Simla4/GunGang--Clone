@@ -7,7 +7,7 @@ public class BulletCollison : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IObstacle obstacle))
+        if (other.TryGetComponent(out IDestroyable obstacle))
         {
             obstacle.WhenBulletHits();
             

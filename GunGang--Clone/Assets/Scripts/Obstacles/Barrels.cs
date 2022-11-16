@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrels : MonoBehaviour, IObstacle
+public class Barrels : MonoBehaviour, IObstacle, IDestroyable
 {
     #region Variables
 
@@ -12,6 +12,15 @@ public class Barrels : MonoBehaviour, IObstacle
     [SerializeField] private bool isBarretWithPlayer = false;
 
     [SerializeField] private TextMeshPro barrelValueTxt;
+
+    #endregion
+
+    #region Callbacks
+
+    private void Start()
+    {
+        barrelValueTxt.text = barrelHealth.ToString();
+    }
 
     #endregion
     
@@ -37,6 +46,11 @@ public class Barrels : MonoBehaviour, IObstacle
             }
             Destroy(gameObject);
         }
+    }
+
+    public void WhenPlayerHits()
+    {
+        
     }
 
     #endregion

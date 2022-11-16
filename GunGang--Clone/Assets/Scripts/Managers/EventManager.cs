@@ -7,5 +7,5 @@ public static class EventManager
 {
     public static Action OnGameStart;
     public static Action OnPlayerFire;
-    public static Action OnBulletCollison;
+    public static Action<bool>OnBulletCollison;
 }
