@@ -3,54 +3,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoSingleton<ObjectPooler>
+public abstract class PoolBase
 {
-    #region Variables
-    
-    [Serializable]
-    public struct Pool
+    public abstract void ReturnToPool(Component component);
+}
+
+public class Pool<T> : PoolBase where T : Component
+{
+    private T _prefab;
+
+    private List<T> active = new List<T>();
+    private Stack<T> inactive = new Stack<T>();
+
+    public event Action OnSpwned;
+    public event Action OnDespowned;
+
+    public void Initialize(T prefab)
     {
-        public GameObject objPrefab;
-        public List<GameObject> activeList;
-        public List<GameObject> inactiveList;
+        _prefab = prefab;
     }
 
-    [SerializeField] private List<Pool> pools = null;
-
-    #endregion
-
-    #region Other Methods
-
-    public GameObject SpanwObject(int objType)
+    public T Spawn()
     {
-        GameObject spawnedObj = null;
-        
-        if(pools[objType].inactiveList.Count > 0)
-        { 
-            spawnedObj = pools[objType].inactiveList[0];
-
-            pools[objType].inactiveList.RemoveAt(0);
-        }
-        else
+        if (inactive.Count > 0)
         {
-            spawnedObj = Instantiate(pools[objType].objPrefab);
+            var item = inactive.Pop();
+            active.Add(item);
+
+            if (item.TryGetComponent(out ISpawn iSpawn))
+            {
+                iSpawn.Spawn();
+            }
+
+            return item;
+        }
+
+        T clone = UnityEngine.Object.Instantiate(_prefab);
+
+        if (clone.TryGetComponent(out ISpawn iSpawned))
+        {
+            iSpawned.Spawn();
+        }
+
+        active.Add(clone);
+        return clone;
+    }
+
+    public override void ReturnToPool(Component obj)
+    {
+        active.Remove(obj as T);
+        inactive.Push(obj as T);
+
+        if (obj.TryGetComponent(out IDespawn iDeSpawn))
+        {
+            iDeSpawn.Despawn();
         }
         
-        spawnedObj.SetActive(true);
-        
-        pools[objType].activeList.Add(spawnedObj);
-        
-        return spawnedObj;
-
+        obj.gameObject.SetActive(false);
     }
-
-    public void RemoveObject(GameObject obj, int objType)
-    {
-        pools[objType].activeList.Remove(obj);
-        
-        pools[objType].inactiveList.Add(obj);
-        obj.SetActive(false);
-    }
-
-    #endregion
 }
