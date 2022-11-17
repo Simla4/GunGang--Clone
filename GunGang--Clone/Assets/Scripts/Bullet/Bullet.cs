@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour, ISpawn, IDespawn
     public void Despawn()
     {
         isReturnPool = true;
+        transform.position = Vector3.zero;
     }
 
     #endregion

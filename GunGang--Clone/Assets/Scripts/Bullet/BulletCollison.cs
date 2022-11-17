@@ -25,8 +25,6 @@ public class BulletCollison : MonoBehaviour
             obstacle.WhenBulletHits();
             
             bulletPool.ReturnToPool(bullet);
-            
-            
         }
     }
 }
