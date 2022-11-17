@@ -15,10 +15,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IObstacle obstacle))
-        {
-            obstacle.Dissapear();
-        }
+        
     }
 
     #endregion
