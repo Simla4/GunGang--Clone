@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 1820646332}
   - component: {fileID: 1820646333}
   m_Layer: 0
-  m_Name: ObjectPool
+  m_Name: PoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,13 +729,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1820646331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c249eefae08e5184f86bc945ba87b7a9, type: 3}
+  m_Script: {fileID: 11500000, guid: b89cf4b5224f4534db734693b23238c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - objPrefab: {fileID: 4354000767251858668, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
-    activeList: []
-    inactiveList: []
+  bulletPrefab: {fileID: -4111996821724511392, guid: 4aec69371b0fb5647a9d3fe961eb82ae, type: 3}
 --- !u!43 &2084161089
 Mesh:
   m_ObjectHideFlags: 0
