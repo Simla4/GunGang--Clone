@@ -43,6 +43,7 @@ public class Pool<T> : PoolBase where T : Component
         }
 
         active.Add(clone);
+        
         return clone;
     }
 

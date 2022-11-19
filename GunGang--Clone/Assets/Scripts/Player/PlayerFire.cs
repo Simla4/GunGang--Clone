@@ -7,11 +7,14 @@ public class PlayerFire : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private bool isPlayerMyTeam = false;
+    public bool isPlayerMyTeam = false;
     [SerializeField] private float bulletExtinctionTime = 1f;
     [SerializeField] private float fireRate = 0.5f;
 
     private float nextFire = 0f;
+    private float nextDestroyBullet = 0f;
+
+    private Pool<Bullet> bulletPool;
 
     #endregion
 
@@ -25,6 +28,11 @@ public class PlayerFire : MonoBehaviour
     private void OnDisable()
     {
         EventManager.OnPlayerFire -= Fire;
+    }
+
+    private void Start()
+    {
+        bulletPool = PoolManager.Instance.bulletPool;
     }
 
     #endregion
@@ -50,14 +58,17 @@ public class PlayerFire : MonoBehaviour
         
         var posX = transform.position.x;
         var posZ = transform.position.z;
-        
-            
-        var spawnedObj = ObjectPooler.Instance.SpanwObject(0);
-        spawnedObj.transform.position = new Vector3(posX, 1, posZ);
-        
+
+        var bullet = bulletPool.Spawn();
+
+        bullet.gameObject.transform.position = new Vector3(posX, 1, posZ);
+
         yield return new WaitForSeconds(bulletExtinctionTime);
-        
-        ObjectPooler.Instance.RemoveObject(spawnedObj, 0);
+
+        if (bullet.isReturnPool == false)
+        {
+            bulletPool.ReturnToPool(bullet);
+        }
     }
 
     #endregion

@@ -587,6 +587,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.000279, y: 0.15979977, z: 135.06145}
   m_Center: {x: -0.00017309189, y: -0.070066266, z: 67.50414}
+--- !u!1 &1496400851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3599019079614329895, guid: e534fa3929ca7544dba2f19f6932810b, type: 3}
+  m_PrefabInstance: {fileID: 3599019079949454584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561023073
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathFollower: {fileID: 1688337133}
   speed: 5
+  soldierList:
+  - {fileID: 1496400851}
 --- !u!1 &1634153922
 GameObject:
   m_ObjectHideFlags: 0

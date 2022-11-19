@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation.Examples;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
     #region Variables
 
     [SerializeField] private PathFollower pathFollower;
 
     [SerializeField] private float speed = 5f;
+
+    public List<GameObject> soldierList;
 
     #endregion
 

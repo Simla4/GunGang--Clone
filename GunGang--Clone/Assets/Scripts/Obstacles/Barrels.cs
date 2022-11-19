@@ -12,6 +12,8 @@ public class Barrels : MonoBehaviour, IObstacle, IDestroyable
     [SerializeField] private bool isBarretWithPlayer = false;
 
     [SerializeField] private TextMeshPro barrelValueTxt;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private PlayerFire playerFire;
 
     #endregion
 
@@ -41,8 +43,11 @@ public class Barrels : MonoBehaviour, IObstacle, IDestroyable
         {
             if (isBarretWithPlayer == true)
             {
-                Debug.Log("Barrel with player");
-            
+                var playerTransform = GameManager.Instance.soldierList[0].transform;
+                
+                playerPrefab.transform.SetParent(playerTransform);
+                playerFire.isPlayerMyTeam = true;
+
             }
             Destroy(gameObject);
         }

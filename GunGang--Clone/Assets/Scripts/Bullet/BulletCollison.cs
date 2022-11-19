@@ -23,7 +23,7 @@ public class BulletCollison : MonoBehaviour
         if (other.TryGetComponent(out IDestroyable obstacle))
         {
             obstacle.WhenBulletHits();
-            
+
             bulletPool.ReturnToPool(bullet);
         }
     }
