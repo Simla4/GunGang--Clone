@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrels : MonoBehaviour, IObstacle, IDestroyable
+public class Barrels : MonoBehaviour, ICollideable, IDestroyable
 {
     #region Variables
 
@@ -53,7 +53,7 @@ public class Barrels : MonoBehaviour, IObstacle, IDestroyable
         }
     }
 
-    public void WhenPlayerHits()
+    public void OnCollide()
     {
         
     }

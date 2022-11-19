@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IObstacle
+public interface ICollideable
 {
-    public void WhenPlayerHits();
+    void OnCollide();
 }
